@@ -1,0 +1,26 @@
+184.190.198.190          ip184-190-198-190.lf.br.cox.net                          
+24.249.95.194            wsip-24-249-95-194.br.br.cox.net                         
+74.80.12.199             74-80-12-199.MALL.dyn.lusfiber.net                       
+76.72.19.132             76-72-19-132.PHK.dyn.lusfiber.net                        
+130.70.80.108            hpc08.cacs.louisiana.edu                                 
+74.80.12.240             74-80-12-240.MALL.dyn.lusfiber.net                       
+130.70.40.10             res-master.louisiana.edu                                 
+130.70.40.10             res-master.louisiana.edu                                 
+74.178.112.235           adsl-74-178-112-235.lft.bellsouth.net                    
+130.70.40.7              uwin-local.louisiana.edu                                 
+130.70.40.21                                                                      
+130.70.40.7              uwin-local.louisiana.edu                                 
+184.190.203.75           ip184-190-203-75.lf.br.cox.net                           
+184.190.198.190          ip184-190-198-190.lf.br.cox.net                          
+24.249.95.194            wsip-24-249-95-194.br.br.cox.net                         
+74.80.12.199             74-80-12-199.MALL.dyn.lusfiber.net                       
+76.72.19.132             76-72-19-132.PHK.dyn.lusfiber.net                        
+130.70.80.108            hpc08.cacs.louisiana.edu                                 
+74.80.12.240             74-80-12-240.MALL.dyn.lusfiber.net                       
+130.70.40.10             res-master.louisiana.edu                                 
+130.70.40.10             res-master.louisiana.edu                                 
+74.178.112.235           adsl-74-178-112-235.lft.bellsouth.net                    
+130.70.40.7              uwin-local.louisiana.edu                                 
+130.70.40.21                                                                      
+130.70.40.7              uwin-local.louisiana.edu                                 
+184.190.203.75           ip184-190-203-75.lf.br.cox.net                           

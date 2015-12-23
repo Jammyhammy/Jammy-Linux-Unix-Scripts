@@ -1,0 +1,225 @@
+# Adil Khokhar
+# CLID: axk9375
+# CMPS 499 Ruby Assignment
+
+I. Requirements Documentation
+
+
+I.1 Description of the Problem
+
+Name: Ruby Switch Object	
+
+Problem Statement: Implement a switch object that mimics the behavior of a C++ switch statement.
+Problem Specification: The program will need to implement an object that behaves similarly to a switch statement from C++. The object should be able to be populated with cases that correspond to a case value and an associated block of code that will execute, as well as an optional break to specify whether the code should fall-through.
+
+Give a complete and detailed specification of the problem. State any assumptions you have made regarding the problem. This specification is intended to provide a real world description of the problem, its input, its output, and its processing. No implementation-specific details should be included.
+
+I.2 Input Information
+
+I.2.1. Input Streams: N/A
+
+I.2.2. Input Items: N/A
+
+I.3 Output Information
+
+I.3.1. Output Streams: N/A
+
+Output Items: printCase() and puts in addCase and getCase
+
+Description: printCase will print out all the procs stored in the hash. addCase and getCase will just provide confirmation of object being stored.
+Type: printCase(): Hash
+addCase: String
+getCase: string
+
+I.4 User Interface Information
+1.4.1 Description: N/A
+
+II. Design Documentation
+
+II.1 System Architecture Description
+
+II.2 Information about the Objects
+
+For each class specification, include the following text and information:
+
+Class Information
+
+Name: MySwitch
+Description: Implements an object that acts similar to a switch statement from C++
+Base Class: Identify the base class, if appropriate
+
+Prototype: initialize( hash )
+Description: Initializes the mySwitch object, creates a new hash for hash.
+Visibility: public
+
+Prototype: addCase( name, fallthr, &ablk )
+Description: Add a case name and the associated block of code to the hash.
+Visibility: public
+
+Prototype: getCase( name, arg )
+Description: Get the case name and the associated block of code, and if there are any args to pass to the block of the code, pass those args.
+Visibility: public
+
+Prototype: printCase()
+Description: Prints out all the current cases in the hash.
+Visibility: public
+
+II.3 Information about the Main Application
+
+class MySwitch
+	init
+		initializes a hash that will store case names into a hash using key as the case name and value as the proc object to be stored.
+	addCase
+		adds a case to a hash, with a case name as the key and the associated block of code as a proc object as the value
+	getCase
+		gets a case, executing the block of code with any args passed onto it
+	printCase
+		prints all of the cases
+
+II.4 Design Diagrams: N/A
+III. Implementation Documentation
+III.1 Program Code (Source Code)
+
+#!/usr/bin/env ruby
+# Adil Khokhar
+# CLID: axk9375
+# CMPS 499 Ruby Assignment
+
+# The mySwitch class provides a switch object
+
+class MySwitch
+
+#	Constructor Function:
+#	Default Constructor
+	def initialize( hash )
+		@hash = Hash.new {|k, v| k[v] = Proc.new{ puts "Exec DefaultCase" }}
+		@hash['default'] = Proc.new {puts "Executing default case"}
+		@storebreak = Array.new
+		@breakname = Array.new
+		@storebreak.push('default')
+		@breakname.push(0)
+	end
+#	addCase:
+#	Add a case name and the associated block of code to the hash.
+	def addCase( name, fallthr, &ablk )
+		puts "Adding case #{name}"
+		@hash[name] = ablk
+		if fallthr == 1
+			@storename.push(name)
+		end
+		printCase()
+	end
+#	getCase:
+#	Get the case name and the associated block of code, and if there are any args to pass to the block of the 
+#	code, pass those args.
+	def getCase( name, arg )
+		puts "Calling case #{name}"
+		@hash[name].call(arg)
+	end
+
+#	printCase:
+#	Prints out all the current cases in the hash.	
+
+	def printCase()
+		puts "List of proc objects in hash:"
+		puts @hash.inspect
+	end
+end
+
+# Start main script.
+# Create and initialize a new mySwitch object and create test cases.
+# You must create a new object using mySwitch.new ( hash ), example below 
+s = MySwitch.new( hash )
+
+# To add cases, use objname.addCase( case name, break value ) { (block of code here to represent code in switch statement) }
+s.addCase(1, 0){ |i| 2.times { puts i} }
+s.addCase(2, 0){ |i| puts i+i }
+s.addCase(3, 0){ |i| puts i*i }
+s.addCase(4, 0){ |i| puts i }
+
+
+# To get a case and execute the following block of code, use objname.getCase( case name, any args to pass to the code ). Following are examples.
+s.getCase(1, 'This is a case')
+s.getCase(4, 'Yup')
+s.getCase(2, 1)
+s.getCase(3, 1)
+s.getCase(1, 'This is the same case but with something else')
+s.getCase('default', 'This is the default case')
+
+# Breaks are unimplemented. If they were implemented, breakname would store the cases in an array.
+# If the user specifies that there is to be no break by putting in s.addCase(1, 1) { block } then
+# the code would fall through and execute previous switch cases until it reaches a case where the
+# break is specified.
+
+
+
+
+IV. Verification and Validation Documentation
+IV.1 Test Plan
+
+# Start main script.
+# Create and initialize a new mySwitch object and create test cases.
+# You must create a new object using mySwitch.new ( hash ), example below 
+s = MySwitch.new( hash )
+
+# To add cases, use objname.addCase( case name, break value ) { (block of code here to represent code in switch statement) }
+s.addCase(1, 0){ |i| 2.times { puts i} }
+s.addCase(2, 0){ |i| puts i+i }
+s.addCase(3, 0){ |i| puts i*i }
+s.addCase(4, 0){ |i| puts i }
+
+
+# To get a case and execute the following block of code, use objname.getCase( case name, any args to pass to the code ). Following are examples.
+s.getCase(1, 'This is a case')
+s.getCase(4, 'Yup')
+s.getCase(2, 1)
+s.getCase(3, 1)
+s.getCase(1, 'This is the same case but with something else')
+s.getCase('default', 'This is the default case')
+
+# Breaks are unimplemented. If they were implemented, breakname would store the cases in an array.
+# If the user specifies that there is to be no break by putting in s.addCase(1, 1) { block } then
+# the code would fall through and execute previous switch cases until it reaches a case where the
+# break is specified.
+
+IV.2 Test Results
+
+Include a script file showing the results of running the program with the test data set. The output listing should be marked, if necessary, so that corresponding input can be identified for each output. That is, if the test data or program logic being exercised by this test is not obvious, mark the output listing with this information.
+
+Calling case 1
+This is a case
+This is a case
+Calling case 4
+Yup
+Calling case 2
+2
+Calling case 3
+1
+Calling case 1
+This is the same case but with something else
+This is the same case but with something else
+Calling case default
+Executing default case
+
+
+IV.3 Operating Directions
+
+# To add cases, use objname.addCase( case name, break value ) { (block of code here to represent code in switch statement) }
+s.addCase(1, 0){ |i| 2.times { puts i} }
+s.addCase(2, 0){ |i| puts i+i }
+s.addCase(3, 0){ |i| puts i*i }
+s.addCase(4, 0){ |i| puts i }
+
+
+# To get a case and execute the following block of code, use objname.getCase( case name, any args to pass to the code ). Following are examples.
+s.getCase(1, 'This is a case')
+s.getCase(4, 'Yup')
+s.getCase(2, 1)
+s.getCase(3, 1)
+s.getCase(1, 'This is the same case but with something else')
+s.getCase('default', 'This is the default case')
+
+# Breaks are unimplemented. If they were implemented, breakname would store the cases in an array.
+# If the user specifies that there is to be no break by putting in s.addCase(1, 1) { block } then
+# the code would fall through and execute previous switch cases until it reaches a case where the
+# break is specified.
